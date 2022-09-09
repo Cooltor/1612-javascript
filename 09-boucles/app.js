@@ -205,6 +205,8 @@ var fruits = [
     "Melons", // 3
 ];
 
+
+
 fruits.forEach( (value, index) => {
     console.log(value, index);
 } );
