@@ -169,3 +169,32 @@ btn_jquery_prop.on('click', event => {
 
 // GET / Recupèrer une valeur : _jQuery.height();
 // SET / Affecter une valeur  : _jQuery.height("120px");
+
+
+
+// -----------------------------------------------------------------------------
+
+
+// Lorsque le "document" est chargé, on execute une fonction
+$(document).ready(function() {
+    
+    // Recupération de tous les éléments aynat la classe ".anim-item"
+    // $animItems est un tableau
+    let $animItems = $('.anim-item');
+
+    // On boucle sur le tableau $animItems
+    $animItems.each((index, item) => {
+        
+        // Pour chaque noeux HTML ayant la classe .anim-item "$(item)"
+        // On recherche le noeux HTML précédent (le frére, pas le parent)
+        // Lorsque je clic sur le frére...
+        $(item).prev().click(event => {
+
+            // On execute une animation slideDown/slideUp sur $(item)
+            $(item).slideToggle();
+
+        });
+
+    });
+});
+	
