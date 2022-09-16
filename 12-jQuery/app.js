@@ -172,6 +172,10 @@ btn_jquery_prop.on('click', event => {
 
 
 
+
+
+// -----------------------------------------------------------------------------
+// ANIMATION
 // -----------------------------------------------------------------------------
 
 
@@ -198,3 +202,36 @@ $(document).ready(function() {
     });
 });
 	
+
+
+
+
+// -----------------------------------------------------------------------------
+// AJAX
+// -----------------------------------------------------------------------------
+
+
+    // URL cible de la requete
+    // const url = "https://swapi.dev/api/people/1/";
+    const url = "data.html";
+
+    // Boutton de deéclenchement de l'appel AJAX
+    const btn_swapi = $('#swapi');
+
+    // Noeux HTML cible de l'affichage de la donné
+    let $data = $('#data');
+
+
+    btn_swapi.click(function(){
+
+        // Requete Asynchrone
+        $.ajax(url, {
+            method: "GET",
+            success: response => {
+
+                $data.html( response );
+                // console.log( response.name );
+            }
+        });
+
+    });
