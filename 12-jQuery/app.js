@@ -221,7 +221,6 @@ $(document).ready(function() {
     // Noeux HTML cible de l'affichage de la donné
     let $data = $('#data');
 
-
     btn_swapi.click(function(){
 
         // Requete Asynchrone
