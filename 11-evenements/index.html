@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+        crossorigin="anonymous">
+    
+    <style>
+        #demo {
+            background-color: beige;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Evenement JavaScript</h1>
+
+        <div id="demo"></div>
+
+        <button type="button" class="btn btn-primary" id="btn_0" onclick="setTextToDemo_1()">Au click (onclick)</button>
+        
+        <button type="button" class="btn btn-primary" id="btn_1">Au click</button>
+        <button type="button" class="btn btn-primary" id="btn_2">Au double click</button>
+        <button type="button" class="btn btn-primary" id="btn_3">Au survole de la sourie</button>
+
+        <hr>
+
+        <p id="txt_target"></p>
+
+        <hr>
+
+        <input type="text" id="txt_source">
+
+        <style>
+            .highlight {
+                background-color: #f4f7b8;
+            }
+        </style>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
