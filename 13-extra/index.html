@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #log {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+
+            width: 200px;
+            margin-left: -100px;
+
+            height: 200px;
+            margin-top: -100px;
+
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(209, 209, 209);
+            padding: 1rem;
+        }
+
+        #content > div {
+            border: 10px solid rgb(74, 73, 73);
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 120px;
+            color:  rgb(74, 73, 73);
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="log">
+        <h2>Mouse position</h2>
+        <div>
+            <strong>Pos X : </strong> <span id="mouse_pos_x">0</span>
+        </div>
+        <div>
+            <strong>Pos Y : </strong> <span id="mouse_pos_y">0</span>
+        </div>
+
+        <h2>Scroll position</h2>
+        <div>
+            <strong>Pos X : </strong> <span id="scroll_pos_x">0</span>
+        </div>
+        <div>
+            <strong>Pos Y : </strong> <span id="scroll_pos_y">0</span>
+        </div>
+    </div>
+
+    <div id="content"></div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
