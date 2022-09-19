@@ -5,8 +5,10 @@
 // --
 
 const domain        = "https://jsonplaceholder.typicode.com";
-const path          = "/posts";
-const endpoint      = `${domain}${path}`;
+// const domain        = "https://monsupersite.com";
+// const path          = "/posts";
+// const endpoint_1    = endpoint(domain, "/posts");
+// const endpoint_2    = endpoint(domain, "/users");
 
 
 // DOM getter
@@ -17,7 +19,7 @@ const btnGetData_1  = document.getElementById('btnGetData_1');
 const btnGetData_4  = document.getElementById('btnGetData_4');
 const btnPostData   = document.getElementById('btnPostData');
 const btnDeleteData = document.getElementById('btnDeleteData');
-
+const btnArtists = document.querySelectorAll('[data-artist]');
 
 // BTN Event
 // --
@@ -28,16 +30,60 @@ btnGetData_4.addEventListener('click' ,fncGetData);
 btnPostData.addEventListener('click', fncPostData);
 btnDeleteData.addEventListener('click', fncDeleteData);
 
+for (let btn of btnArtists)
+{
+    btn.addEventListener('click', getArtistInfo);
+}
 
 // Function denition
 // --
 
+
+function endpoint(domain, path)
+{
+    return `${domain}${path}`;
+}
+
+
+
 function fncGetData(event) 
 {
     const btnTrigger = event.target;
-    const postId = btnTrigger.dataset.post;
+    const postId = btnTrigger.dataset.post ?? null;
+    const type = btnTrigger.dataset.type ?? null;
 
-    console.log( "fncGetData", postId );
+    const url = postId != null
+        ? endpoint(domain, `/posts/${postId}`)
+        : endpoint(domain, `/posts`)
+    ;
+
+    console.log( url );
+
+    // Requete Asynchrone
+    $.ajax(url, {
+        method: "GET",
+        success: response => {
+            console.log( response );
+        }
+    });
+}
+
+
+function getArtistInfo(event) 
+{
+    const btn = event.target;
+    const id = btn.dataset.id ?? null;
+    const url = `https://api.discogs.com/artists/${id}`;
+
+    // Requete Asynchrone
+    $.ajax(url, {
+        method: "GET",
+        success: response => {
+            console.log( response );
+            // console.log( response.profile );
+            console.log( '------------' );
+        }
+    });
 }
 
 
@@ -59,14 +105,5 @@ function fncDeleteData(event)
 
     // btn_swapi.click(function(){
 
-    //     // Requete Asynchrone
-    //     $.ajax(url, {
-    //         method: "GET",
-    //         success: response => {
-
-    //             $data.html( response );
-    //             // console.log( response.name );
-    //         }
-    //     });
 
     // });
