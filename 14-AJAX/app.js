@@ -62,10 +62,25 @@ function fncGetData(event)
     // Requete Asynchrone
     $.ajax(url, {
         method: "GET",
+        type: "application/json",
         success: response => {
             console.log( response );
         }
     });
+
+    $.get(
+        url, 
+        response => {
+            console.log( response );
+        }
+    );
+
+    $.getJSON(
+        url, 
+        response => {
+            console.log( response );
+        }
+    );
 }
 
 
@@ -87,10 +102,26 @@ function getArtistInfo(event)
 }
 
 
-
-
 function fncPostData(event) 
 {
+    const url = endpoint(domain, `/posts`);
+
+    // Retrieve form data
+    let form = {
+        title: "Mon super post",
+        body: "Lorem blah blah blah ipsum dolor..."
+    };
+
+    // Requete Asynchrone
+    $.ajax(url, {
+        method: "POST",
+        data: form,
+        success: response => {
+            console.log( response );
+        }
+    });
+
+
     console.log( "fncPostData", event );
 }
 
@@ -100,10 +131,3 @@ function fncDeleteData(event)
 }
 
  
-
-
-
-    // btn_swapi.click(function(){
-
-
-    // });
