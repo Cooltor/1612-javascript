@@ -7,6 +7,19 @@ const mouse_pos_y   = document.getElementById('mouse_pos_y');
 const scroll_pos_x  = document.getElementById('scroll_pos_x');
 const scroll_pos_y  = document.getElementById('scroll_pos_y');
 
+
+
+function getHeight() 
+{
+    var body = document.body,
+        html = document.documentElement;
+    
+    return Math.max( body.scrollHeight, body.offsetHeight, 
+                           html.clientHeight, html.scrollHeight, html.offsetHeight );
+}
+
+
+
 // Create many div in #content
 // --
 
@@ -21,6 +34,8 @@ for (let i=0; i<200; i++)
     // Put the <div> into the <#content>
     content.append(div);
 }
+
+console.log( getHeight() );
 
 
 // Get Mouse positions
